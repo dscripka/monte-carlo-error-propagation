@@ -1,0 +1,96 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="src/nerdamer-master/nerdamer.core.js"></script>
+    <script src="src/nerdamer-master/Calculus.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.0/math.min.js"></script>
+    <script src="mcErrorCalc.js"></script>
+  </head><body>
+    <div class="cover">
+      <div class="cover-image"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>Monte Carlo Error Analysis</h1>
+            <p>For single-shot experimental data</p>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Define Your Equation and Variable Distributions</h1>
+            <p>&nbsp;</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-sm-1">
+              <label for="equationInput" class="control-label">Equation</label>
+            </div>
+            <div class="col-sm-3">
+              <input type="text" id="equationInput" placeholder="For example, x^2 + 2" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <a class="btn btn-lg btn-primary" id="processEq">Process Equation</a>
+              <a class="btn btn-lg btn-primary" id="resetEq">Reset</a>
+            </div>
+            <div class="col-sm-4">
+              <img border="5" src="" id="eqPrev">
+            </div>
+          </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div>
+        <div class="row">
+          <div class="col-md-12 text-left">
+            <a class="btn btn-lg btn-primary hidden" id="finalCalculation">Calculate Monte Carlo Uncertainty Statistics</a>
+          </div>
+        </div>
+          <div id="resultsDiv" class="row hidden">
+            <p>&nbsp;</p>
+            <hr>
+            <div class="col-md-8">
+            <h1>Monte Carlo Distribution</h1>
+              <p>&nbsp;</p>
+              <div id="myDiv" style="width:100%;height:500px;"></div>
+            </div>
+            <div id="distribution-parameters" class="col-md-4">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Mean</th>
+                    <th>Std. Deviation</th>
+                    <th>95% Conf. Int.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="tableMean">1</td>
+                    <td id="tableSD" >1</td>
+                    <td id="tableConfInt">1-5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="mcErrorCalc.js"></script>
+  
+
+</body>
+</html>

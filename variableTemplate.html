@@ -1,0 +1,67 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading-{{var}}">
+        <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{var}}" aria-expanded="false" aria-controls="collapse-{{var}}">
+            Variable: {{var}}
+            </a>
+        </h4>
+    </div>
+    <div id="collapse-{{var}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{var}}">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="btn-group-vertical" role="group" data-toggle="buttons">
+                                <label id="'variable-{{var}}-uniform" class="btn btn-primary active">
+                                    <input type="radio" name="options" id="variable-{{var}}-uniform" autocomplete="off">Uniform Distribution
+                                </label>
+                                <label id="variable-{{var}}-triangular" class="btn btn-primary">
+                                    <input type="radio" name="options" id="variable-{{var}}-triangular" autocomplete="off">Triangular Distribution
+                                </label>
+                                <label id="variable-{{var}}-normal" class="btn btn-primary">
+                                    <input type="radio" name="options" id="variable-{{var}}-normal" autocomplete="off">Normal Distribution
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="col-sm-6">
+                                <label for="variable-{{var}}-par1">Lower Bound</label>
+                            </div>
+                            <div id="variable-{{var}}" class="col-sm-6">
+                                <input type="text" id="variable-{{var}}-par1" class="form-control">
+                            </div>
+
+                            <p>&nbsp;</p>
+
+                            <div class="col-sm-6">
+                                <label for="variable-{{var}}-par2">Upper Bound</label>
+                            </div>
+                            <div id="variable-{{var}}" class="col-sm-6">
+                                <input type="text" id="variable-{{var}}-par2" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p id="variable-{{var}}-text">
+                            Select the distribution type for the variable, and enter the lower, and upper bounds of the distribution.
+                            Symmetric distributions are assumed, with the center value being the mean of the distribution.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div id="variable-{{var}}-plot" style="width: {{w}}, height: {{h}}">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
