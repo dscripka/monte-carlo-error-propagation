@@ -27,12 +27,21 @@ $('#resetEq').click( function () {
 	$('#resultsDiv').addClass('hidden');
 });
 
-// Trigger updates of individual plots and options based on distribution (radio button) or value changes
-$(document).on('change keyup', 'input, .form-control', function(event) {
-	//console.log($(this).val()=='on');
-	$.each(variables, function (index, value) {
-		if ( event.target.id.includes('variable-' + value) ) updatePlot(value)
-	});
+// Update plot and distribution values when new parameters are entered
+
+$(document).on('click', 'a[id*="updateParameter"]', function () {
+	$('input#variable-'+this.id.split('-')[1]+'-uniform, .active').prop('checked', true);	//this needs to be here, otherwise update button doesn't work?
+	updatePlot(this.id.split('-')[1]);
+});
+
+// Trigger updates of individual plots and options based on variable viewing changes
+$(document).on('change', 'input, .form-control', function(event) {
+	//console.log(this.id.split('-')[1]);
+	updatePlot(this.id.split('-')[1])
+});
+
+$(document).on('click', 'a[href*="collapse-"]', function () {
+	updatePlot(this.href.slice(-1));
 });
 
 ///////////////////////////////////
@@ -68,13 +77,13 @@ function processEq () {
 		$.each(variables, function (index, value) {
 			//Create layout of each accordian region with mustache.js templating
 			$.get('variableTemplate.html', function(template) {
-				var rendered = Mustache.render(template, {var: value.toString(), w: 500, h: 200});
+				var rendered = Mustache.render(template, {var: value.toString()});
 				//console.log(rendered);
 				$('#accordion').append(rendered);
 
 				// Input default values for default uniform distribution
-				$('#variable-' + value.toString() + '-par1').val(0)
-				$('#variable-' + value.toString() + '-par2').val(1)
+				$('#variable-' + value + '-par1').val(0)
+				$('#variable-' + value + '-par2').val(1)
 
 				// Get and store initial monte carlo distribution
 				varVals[value] = {};
@@ -83,38 +92,16 @@ function processEq () {
 				varVals[value]['par1'] = 0;
 				varVals[value]['par2'] = 1;
 
-				// Create default plot
-				var data = [
-							{
-								x: varVals[value]['monteCarloValues'],
-								type: 'histogram',
-								nbinsx: 100,
-								marker: {
-								color: 'rgba(100,250,100,0.7)',
-								},
-							}
-							];
-
-				var layout = {
-								autosize: false,
-								height: 200,
-								width: 500,
-								margin: {
-									l: 35,
-									r: 35,
-									b: 20,
-									t: 20,
-									pad: 2
-									},
-							};
-
 				// Create variable plot
-				Plotly.newPlot('variable-'+ value.toString() +'-plot', data, layout);
+				updatePlot(value);
+				
 
 				// Show final calculation button
 				$('#finalCalculation').removeClass('hidden');
 			});
 		});
+
+
 };
 
 // Define function for final calculation of monte carlo uncertainty statistics
@@ -146,11 +133,20 @@ $("#finalCalculation").click( function() {
 	var mcMean = math.mean(mcDistribution);
 	var mcSD = math.std(mcDistribution);
 	var mcConfIntLower = math.quantileSeq(mcDistribution, 0.025);
-	var mcConftIntUpper = math.quantileSeq(mcDistribution, 0.975);
+	var mcConfIntUpper = math.quantileSeq(mcDistribution, 0.975);
 
-	$('#tableMean').html(math.round(mcMean, 2).toString());
-	$('#tableSD').html(math.round(mcSD, 2).toString());
-	$('#tableConfInt').html(math.round(mcConfIntLower,2).toString() + ' - ' + math.round(mcConftIntUpper,2).toString());
+	$('#tableMean').html(mcMean.toPrecision(3));
+	$('#tableSD').html(mcSD.toPrecision(3));
+	$('#tableConfInt').html(mcConfIntLower.toPrecision(3) + ' to ' + mcConfIntUpper.toPrecision(3));
+
+	//// Calculate approximate proportion of error assigned to each variable
+
+	// Get partial derivatives
+
+/*	$.each(variables, function (index, value) {
+		var eqText = $('#equationInput').val();
+		var deriv = nerdamer("'diff(" + eqText +", " + value + +"')");
+	});*/
 
 
 	// Create plot.ly plots of final monte carlo distribution
@@ -168,6 +164,7 @@ $("#finalCalculation").click( function() {
 				];
 
 	var layout = {
+					autosize: true,
 					margin: {
 						t: 5,
 						},
@@ -180,7 +177,7 @@ $("#finalCalculation").click( function() {
 									yref: 'paper',
 									x0: mcConfIntLower,
 									y0: 0,
-									x1: mcConftIntUpper,
+									x1: mcConfIntUpper,
 									y1: 1,
 									fillcolor: '#d3d3d3',
 									opacity: 0.3,
@@ -253,20 +250,6 @@ function getRandomValues(distType, par1, par2, n=N) {
 				var normalVal = stdev * Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v ) + mean;
 			values.push(normalVal)
 		}
-
-/*		// Scale standard deviation to match upper and lower bounds (defined as percentiles of distribution)
-		var minVal = percentile(values.sort(function(a, b){return a - b;}), .001)
-		var maxVal = percentile(values.sort(function(a, b){return a - b;}), .999)
-
-		//var minVal = Math.min(...values);
-		//var maxVal = Math.max(...values);
-		var valuesScaled = [];
-
-		for (i = 0; i <= n; i++) {
-			valuesScaled.push((values[i] - minVal)/(maxVal-minVal) * (upper - lower) + lower)
-		}
-
-		values = valuesScaled;*/
 	}
 
 	//return final values
@@ -297,11 +280,10 @@ function updatePlot(value){
 
 	// Update global values for all plots
 	updateVals();
-
 	// Create updated plot for current variable
 	var data = [
 				{
-					x: varVals[value.toString()]["monteCarloValues"],
+					x: varVals[value]["monteCarloValues"],
 					type: 'histogram',
 					nbinsx: 100,
 					marker: {
@@ -311,9 +293,8 @@ function updatePlot(value){
 				];
 
 	var layout = {
-					autosize: false,
+					autosize: true,
 					height: 200,
-					width: 500,
 					margin: {
 						l: 35,
 						r: 35,
@@ -323,7 +304,7 @@ function updatePlot(value){
 						}
 				};
 
-	Plotly.newPlot('variable-'+ value.toString() +'-plot', data, layout);
+	Plotly.newPlot('variable-'+ value +'-plot', data, layout);
 };
 
 // Get values for all variables
@@ -342,11 +323,13 @@ function updateVals(){
 			$("label[for=variable-"+value+"-par2]").html("Standard Deviation");
 
 			// Set values
-			varVals[value]["par1"] = $('#' + 'variable-' + value.toString() + '-par1').val()
-			varVals[value]["par2"] = $('#' + 'variable-' + value.toString() + '-par2').val()
+			varVals[value]["par1"] = $('#' + 'variable-' + value + '-par1').val()
+			varVals[value]["par2"] = $('#' + 'variable-' + value+ '-par2').val()
 
 			// Generate the appropriate random numbers for each variable
 			varVals[value]["monteCarloValues"] = getRandomValues(varVals[value]["distribution"], varVals[value]["par1"], varVals[value]["par2"]);
+
+			console.log("test");
 
 		};
 
@@ -358,13 +341,14 @@ function updateVals(){
 			$("label[for=variable-"+value+"-par2]").html("Upper Bound");
 
 			// Set values
-			varVals[value]["par1"] = $('#' + 'variable-' + value.toString() + '-par1').val()
-			varVals[value]["par2"] = $('#' + 'variable-' + value.toString() + '-par2').val()
+			varVals[value]["par1"] = $('#' + 'variable-' + value + '-par1').val()
+			varVals[value]["par2"] = $('#' + 'variable-' + value + '-par2').val()
 
 			// Generate the appropriate random numbers for each variable
 			varVals[value]["monteCarloValues"] = getRandomValues(varVals[value]["distribution"], varVals[value]["par1"], varVals[value]["par2"]);
 
 		};
+
 
 		if ($('input#variable-'+value+'-uniform').prop('checked')) {
 			varVals[value]["distribution"] = "uniform";
@@ -374,13 +358,12 @@ function updateVals(){
 			$("label[for=variable-"+value+"-par2]").html("Upper Bound");
 
 			// Set values
-			varVals[value]["par1"] = $('#' + 'variable-' + value.toString() + '-par1').val()
-			varVals[value]["par2"] = $('#' + 'variable-' + value.toString() + '-par2').val()
+			varVals[value]["par1"] = $('#' + 'variable-' + value + '-par1').val()
+			varVals[value]["par2"] = $('#' + 'variable-' + value + '-par2').val()
 
 			// Generate the appropriate random numbers for each variable
 			varVals[value]["monteCarloValues"] = getRandomValues(varVals[value]["distribution"], varVals[value]["par1"], varVals[value]["par2"]);
 
 		};
 	});
-	console.log(varVals);
 };
