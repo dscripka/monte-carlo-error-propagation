@@ -2,7 +2,7 @@
 
 Web app demonstrating uncertainty propagation using monte carlo methods for arbitrary functions. Individual variables can have uniform, triangular, or normal distributions.
 
-All calculations are done client-side with javascript.
+All calculations are done client-side with javascript. See a live example [here.](http://www.davidscripka.com/monte-carlo-error-propagation)
 
 # Acknowledgements #
 
