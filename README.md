@@ -6,4 +6,4 @@ All calculations are done client-side with javascript.
 
 # Acknowledgements #
 
-This app leverages [Nerdamer Symbolic Math](https://github.com/jiggzson/nerdamer) heavily. Many thanks to it's developers for a fantastic library.
+This app leverages [Nerdamer Symbolic Math](https://github.com/jiggzson/nerdamer) heavily. Many thanks to its developers for a fantastic library.
