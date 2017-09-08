@@ -57,11 +57,15 @@
        id="g3533"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
-      <image
-         width="700"
-         height="200"
-         preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAVZUlEQVR4nO2d3Wtd1daHzx+X1sao
+      <g
+         id="g3577"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <image
+           y="188.07657"
+           x="23.57143"
+           id="image3430"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAVZUlEQVR4nO2d3Wtd1daHzx+X1sao
 cX9ga4kfiQkFERTTHDcES1Ao5KKlCQExmGghoaL0wrsoFAJRxBiDUKJog2/TBFJr0xjdeWu2Kx3v
 RXk33U27k6yOPcdYcz0PPBf5WnPMMT/W7/RI8h8BAAAAAIiY/1gXAAAAAADQSgi8AAAAABA1BF4A
 AAAAiBoCLwAAAABEDYEXAAAAAKKGwAsAAAAAUUPgBQAAAICoIfACAAAAQNQQeAEAAAAgagi8AAAA
@@ -160,14 +164,14 @@ Pv74Y3njjTcMK4eYePii58+tgzaH3WPcfdAKCLz7cPnyZSmXy/L888/LhQsX+FcOUKXZ/iqXy3L1
 ReAFAAAAAGgVBF4AAAAAiBoCLwAAAABEDYEXAAAAAKKGwAsAAAAAUfN/raBggclMCqIAAAAASUVO
 RK5CYII=
 "
-         id="image3430"
-         x="23.57143"
-         y="188.07657" />
-      <image
-         width="700"
-         height="200"
-         preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAX+UlEQVR4nO2d309cVfeH3z+O1iIq
+           preserveAspectRatio="none"
+           height="200"
+           width="700" />
+        <image
+           y="465.21939"
+           x="23.57143"
+           id="image3441"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAX+UlEQVR4nO2d309cVfeH3z+O1iIq
 DjOxtUEtCGliTDSlvE5CbIhNmnBRX2lIjETQJpA2ml54hyZNSLAxUiQmDRot8VsKCYqlSB2sxUPX
 96ZOOkDpzDnr7L32nudJngt+dO+91t5nz6e0Yf4jAAAAAAAR8x/fCwAAAAAAyBMCLwAAAABEDYEX
 AAAAAKKGwAsAAAAAUUPgBQAAAICoIfACAAAAQNQQeAEAAAAgagi8AAAAABA1BF4AAAAAiBoCLwAA
@@ -277,14 +281,14 @@ XV2VJEnkk08+kTfffNNHCRAg9+7dk2PHjsnq6uqer/F265CFLGeL+w00OOgMPg6B9xGbm5vV3//3
 U1NTe37PaWtra/Vt1Xm7dUhLlrPF/QYaHHQGn/b66wszP+EFAAAAAMgDAi8AAAAARA2BFwAAAACi
 hsALAAAAAFFD4AUAAACAqPl/kgPlmSWulgQAAAAASUVORK5CYII=
 "
-         id="image3441"
-         x="23.57143"
-         y="465.21939" />
-      <image
-         width="700"
-         height="200"
-         preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAULUlEQVR4nO3d709Td+PG8fuP6xgd
+           preserveAspectRatio="none"
+           height="200"
+           width="700" />
+        <image
+           y="742.36218"
+           x="23.57143"
+           id="image3452"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAADICAYAAAAKljK9AAAULUlEQVR4nO3d709Td+PG8fuP6xgd
 S1h/RNCBOm4IizGZEbs0YSFEly0skQzGE4igLBCdxueYzIWFmUVEMmMgmRK+/Nq6MSqWlHuhnnJ9
 H2w2FmmBcno+7ee8X8k7Wanas2PpuVSs/xEAAABgsf+YPgAAAACgnBi8AAAAsBqDFwAAAFZj8AIA
 AMBqDF4AAABYjcELAAAAqzF4AQAAYDUGLwAAAKzG4AUAAIDVGLwAAACwGoMXAAAAVmPwAgAAwGoM
@@ -377,45 +381,46 @@ MzMKhUJyHMfUIbqCwfuvVCqV935/r//7xYsXmpiYeOu9MIPBIH+05aJi51+SvvvuO506dUr19fX6
 VgwfsT0O87rT3t6e9w49cM9B5398fFynT5/W6dOnde7cOSuuuQxeAAAAWI3BCwAAAKsxeAEAAGA1
 Bi8AAACsxuAFAACA1f4fMKULNFheoOEAAAAASUVORK5CYII=
 "
-         id="image3452"
-         x="23.57143"
-         y="742.36218" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text3455"
-         y="192.3622"
-         x="235.33595"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:25px"
-           y="192.3622"
+           preserveAspectRatio="none"
+           height="200"
+           width="700" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="235.33595"
-           id="tspan3457"
-           sodipodi:role="line">Impact Velocity (m/s)</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3455-3"
-         y="467.13861"
-         x="267.80054"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:25px"
-           y="467.13861"
+           y="192.3622"
+           id="text3455"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan3457"
+             x="235.33595"
+             y="192.3622"
+             style="font-size:25px">Impact Velocity (m/s)</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="267.80054"
-           id="tspan3457-6"
-           sodipodi:role="line">Temperature (C)</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3455-3-7"
-         y="741.94928"
-         x="269.74146"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:25px"
-           y="741.94928"
+           y="467.13861"
+           id="text3455-3"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan3457-6"
+             x="267.80054"
+             y="467.13861"
+             style="font-size:25px">Temperature (C)</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="269.74146"
-           id="tspan3457-6-5"
-           sodipodi:role="line">Angle (degrees)</tspan></text>
+           y="741.94928"
+           id="text3455-3-7"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan3457-6-5"
+             x="269.74146"
+             y="741.94928"
+             style="font-size:25px">Angle (degrees)</tspan></text>
+      </g>
     </g>
   </g>
 </svg>
